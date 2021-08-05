@@ -159,7 +159,6 @@ async def _insta_post_downloader(message):
     )
     if False:
         # add auth code here
-        machine Instagram login patrobighnesh8@gmail.com password 1/2patro8407
         pass
     else:
         await message.edit(
