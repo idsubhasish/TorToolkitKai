@@ -318,7 +318,8 @@ async def handle_leech_command(e):
                 await check_link(e, rclone, is_zip, is_ext, conf_mes)
             else:
                 await e.reply(
-                    "<b><i>Telegram</i> LEECH IS DISABLED BY THE ADMIN</b>", parse_mode="html"
+                    "<b><i>Telegram</i> LEECH IS DISABLED BY THE ADMIN</b>",
+                    parse_mode="html",
                 )
 
 
@@ -930,7 +931,10 @@ async def booted(client):
     chats = get_val("ALD_USR")
     for i in chats:
         try:
-            await client.send_message(i, "The Bot is Restarted and is ready to use. \nTry /usettings For Custom Config And Upload To Drive. \nBot Edited By : @Kai_Space \nPowered By : @Movie_Bank")
+            await client.send_message(
+                i,
+                "The Bot is Restarted and is ready to use. \nTry /usettings For Custom Config And Upload To Drive. \nBot Edited By : @Kai_Space \nPowered By : @Movie_Bank",
+            )
         except Exception:
             torlog.info(f"Not found the entity {i}")
 
