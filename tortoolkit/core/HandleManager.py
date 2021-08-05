@@ -252,7 +252,7 @@ def add_handlers(bot: TelegramClient):
 
 async def handle_leech_command(e):
     if not e.is_reply:
-        await e.reply("Reply to a <b>🔗Link</b> / <b>🧲Magnet</b>")
+        await e.reply("Reply to a **🔗Link/🧲Magnet**")
     else:
         rclone = False
         tsp = time.time()
@@ -594,7 +594,7 @@ async def handle_pincode_cb(e):
         if isinstance(passw, bool):
             await e.answer("torrent expired download has been started now.")
         else:
-            await e.answer(f"Your Pincode is <i>{passw}</i>", alert=True)
+            await e.answer(f"Your Pincode is **{passw}**", alert=True)
 
     else:
         await e.answer("It's not your torrent.", alert=True)
@@ -933,7 +933,7 @@ async def booted(client):
         try:
             await client.send_message(
                 i,
-                "The Bot is Restarted and is ready to use. \nTry /usettings For Custom Config And Upload To Drive. \nBot Edited By : @Kai_Space \nPowered By : @Movie_Bank",
+                "The Bot is Restarted and is ready to use. \nTry /usettings For Custom Config And Upload To Drive. \nBot Edited By : @Kai84_Space \nPowered By : @Movie_Bank",
             )
         except Exception:
             torlog.info(f"Not found the entity {i}")
