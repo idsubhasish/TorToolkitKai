@@ -252,7 +252,7 @@ def add_handlers(bot: TelegramClient):
 
 async def handle_leech_command(e):
     if not e.is_reply:
-        await e.reply("Reply to a link or magnet")
+        await e.reply("Reply to a <b>🔗Link</b> / <b>🧲Magnet</b>")
     else:
         rclone = False
         tsp = time.time()
@@ -280,7 +280,7 @@ async def handle_leech_command(e):
         )
 
         conf_mes = await e.reply(
-            f"First click if you want to zip the contents or extract as an archive (only one will work at a time) then...\n\n<b>Choose where to upload your files:-</b>\nThe files will be uploaded to default destination: <b>{get_val('DEFAULT_TIMEOUT')}</b> after 60 sec of no action by user.</u>\n\n<b>Supported archives to extract:</b>\nzip, 7z, tar, gzip2, iso, wim, rar, tar.gz, tar.bz2",
+            f"First click if you want to zip the contents or extract as an archive (only one will work at a time) then...\n\n<b>Choose where to upload your files:-</b>\nThe files will be uploaded to default destination: <b>{get_val('DEFAULT_TIMEOUT')}</b> after 60 sec of no action by user.</u>\n\n<b>Supported archives to extract:</b>\n<i>zip, 7z, tar, gzip2, iso, wim, rar, tar.gz, tar.bz2</i>\n<b> Edited By :</b> @Kai84_Space",
             parse_mode="html",
             buttons=buts,
         )
@@ -311,14 +311,14 @@ async def handle_leech_command(e):
                 await check_link(e, rclone, is_zip, is_ext, conf_mes)
             else:
                 await e.reply(
-                    "<b>DRIVE IS DISABLED BY THE ADMIN</b>", parse_mode="html"
+                    "<b><i>DRIVE/i> IS DISABLED BY THE ADMIN</b>", parse_mode="html"
                 )
         else:
             if get_val("LEECH_ENABLED"):
                 await check_link(e, rclone, is_zip, is_ext, conf_mes)
             else:
                 await e.reply(
-                    "<b>TG LEECH IS DISABLED BY THE ADMIN</b>", parse_mode="html"
+                    "<b><i>Telegram</i> LEECH IS DISABLED BY THE ADMIN</b>", parse_mode="html"
                 )
 
 
@@ -476,7 +476,7 @@ async def handle_settings_cb(e):
     if await is_admin(e.client, e.sender_id, e.chat_id):
         await handle_setting_callback(e)
     else:
-        await e.answer("⚠️ WARN ⚠️ Dont Touch Admin Settings.", alert=True)
+        await e.answer("<b>⚠️WARN⚠️</b> Dont Touch Admin Settings.", alert=True)
 
 
 async def handle_upcancel_cb(e):
@@ -593,7 +593,7 @@ async def handle_pincode_cb(e):
         if isinstance(passw, bool):
             await e.answer("torrent expired download has been started now.")
         else:
-            await e.answer(f"Your Pincode is {passw}", alert=True)
+            await e.answer(f"Your Pincode is <i>{passw}</i>", alert=True)
 
     else:
         await e.answer("It's not your torrent.", alert=True)
@@ -629,7 +629,7 @@ async def set_password_zip(message):
     data = message.raw_text.split(" ")
     passdata = message.client.dl_passwords.get(int(data[1]))
     if passdata is None:
-        await message.reply(f"No entry found for this job id {data[1]}")
+        await message.reply(f"No entry found \nJob ID : {data[1]}")
     else:
         print(message.sender_id)
         print(passdata[0])
@@ -643,7 +643,7 @@ async def set_password_zip(message):
 
 
 async def start_handler(event):
-    msg = "Hello This is TorToolkitX running on heroku an instance of <a href='https://github.com/XcodersHub/TorToolkitX'>This Repo</a>. Try the repo for yourself and dont forget to put a STAR and fork."
+    msg = "Hello This is TorToolkitKai running on heroku an instance of <a href='https://github.com/DragonPower84/TorToolkitKai'>ıllıllı Link ıllıllı</a>. \nTry the repo for yourself and dont forget to put a STAR and fork."
     await event.reply(msg, parse_mode="html")
 
 
@@ -811,11 +811,11 @@ async def about_me(message):
     diff = Human_Format.human_readable_timedelta(diff)
 
     msg = (
-        "<b>Name</b>: <code>TorToolkitX-Heroku</code>\n"
+        "<b>Name</b>: <code>TorToolkitKai-Heroku</code>\n"
         f"<b>Version</b>: <code>{__version__}</code>\n"
         f"<b>Telethon Version</b>: {telever}\n"
         f"<b>Pyrogram Version</b>: {pyrover}\n"
-        "<b>Modified By</b>: @XcodersHub\n\n"
+        "<b>Modified By</b>: @Kai_Space\n\n"
         "<u>Currents Configs:-</u>\n\n"
         f"<b>Bot Uptime:-</b> {diff}\n"
         "<b>Torrent Download Engine:-</b> <code>qBittorrent [4.3.0 fix active]</code> \n"
@@ -879,14 +879,14 @@ async def set_thumb_cmd(e):
 
     user_db.set_var("DISABLE_THUMBNAIL", False, str(e.sender_id))
     await e.reply(
-        "Thumbnail set. try using /usettings to get more control. Can be used in private too."
+        "Thumbnail set. try using /usettings to get more control. \nCan be used in private too."
     )
 
 
 async def clear_thumb_cmd(e):
     user_db.set_var("DISABLE_THUMBNAIL", True, str(e.sender_id))
     await e.reply(
-        "Thumbnail disabled. Try using /usettings to get more control. Can be used in private too."
+        "Thumbnail disabled. Try using /usettings to get more control. \nCan be used in private too."
     )
 
 
@@ -930,7 +930,7 @@ async def booted(client):
     chats = get_val("ALD_USR")
     for i in chats:
         try:
-            await client.send_message(i, "The bot is booted and is ready to use.")
+            await client.send_message(i, "The Bot is Restarted and is ready to use. \nTry /usettings For Custom Config And Upload To Drive. \nBot Edited By : @Kai_Space \nPowered By : @Movie_Bank")
         except Exception:
             torlog.info(f"Not found the entity {i}")
 
