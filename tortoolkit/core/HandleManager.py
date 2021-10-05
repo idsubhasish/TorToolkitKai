@@ -651,11 +651,15 @@ async def start_handler(event):
 await event.send_message(
     mshg,
     file=pict,
+    reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton('🌸 Kai84 🌸', url="tg://user?id=1477711713")],
+                [
+                    InlineKeyboardButton('Share My Movie Group💫', url="https://t.me/share/url?url=%40Movie_Bank")]
+            ]
+       ),
     parse_mode = 'markdown'
-    buttons=[
-        [Button.url(text="Owner", url="tg://user?id=1477711713")],
-        [Button.url(text="Share", url="https://t.me/share/url?url=%40Movie_Bank")],
-    ]
 )
 
 def progress_bar(percentage):
