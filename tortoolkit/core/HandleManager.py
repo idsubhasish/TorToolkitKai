@@ -16,7 +16,7 @@ from telethon import TelegramClient
 from telethon import __version__ as telever
 from telethon import events
 from telethon.tl.types import KeyboardButtonCallback
-from telegram import InlineKeyboardButton, InlineKeyboardMarkup
+from telegram import Button
 
 from tortoolkit import __version__
 
@@ -646,15 +646,10 @@ async def set_password_zip(message):
 
 async def start_handler(event):
     pict="https://telegra.ph/file/9a450dd2c7f28bd1bd518.jpg"
-    buts = InlineKeyboardMarkup([[InlineKeyboardButton(text="🌸 Kai84 🌸", url="tg://user?id=1477711713")],[InlineKeyboardButton(text="Share My Movie Group💫", url="https://t.me/share/url?url=%40Movie_Bank")]])
+    keyboard = [[Button.url(text="🌸 Kai84 🌸", url="tg://user?id=1477711713")],[Button.url(text="Share My Movie Group💫", url="https://t.me/share/url?url=%40Movie_Bank")]]
     usinfo = f'[{update.message.from_user.first_name}](tg://user?id={update.message.from_user.id})'
     mshg = f'Hello {usinfo}, I am [Tanjirou Kamado](https://anilist.co/character/126071/Tanjirou-Kamado). \nI Can Leech And Upload Either To Telegram Or To My Google Drive. \nU can Use Me To Leech Your Movies, Web Series, Anime Or Anything U Want.\nThanks To @Kai_8_4 For Editing Me and Making Me a Anime Leech Bot.'
-    await event.reply(
-    mshg,
-    file=pict,
-    reply_markup=buts,
-    parse_mode="markdown"
-    )
+    await event.reply(event.chat_id, mshg, file=pict, buttons=keybord)
 
 def progress_bar(percentage):
     """Returns a progress bar for download"""
