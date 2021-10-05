@@ -16,7 +16,6 @@ from telethon import TelegramClient
 from telethon import __version__ as telever
 from telethon import events
 from telethon.tl.types import KeyboardButtonCallback
-from telethon import Button
 
 from tortoolkit import __version__
 
@@ -658,8 +657,7 @@ await event.send_message(
                 [
                     InlineKeyboardButton('Share My Movie Group💫', url="https://t.me/share/url?url=%40Movie_Bank")]
             ]
-       ),
-    parse_mode = 'markdown'
+       )
 )
 
 def progress_bar(percentage):
