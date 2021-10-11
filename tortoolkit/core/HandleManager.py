@@ -644,10 +644,10 @@ async def set_password_zip(message):
             )
 
 
-async def start_handler(event):
+async def start_handler(event, user_message):
     pict="https://telegra.ph/file/9a450dd2c7f28bd1bd518.jpg"
     keyboard = [[Button.url(text="🌸 Kai84 🌸", url="tg://user?id=1477711713")],[Button.url(text="Share My Movie Group💫", url="https://t.me/share/url?url=%40Movie_Bank")]]
-    usinfo = f'[{message.from_user.first_name}](tg://user?id={message.from_user.id})'
+    usinfo = f'[{user_message.from_user.first_name}](tg://user?id={user_message.from_user.id})'
     mshg = f'Hello {usinfo}, I am [Tanjirou Kamado](https://anilist.co/character/126071/Tanjirou-Kamado). \nI Can Leech And Upload Either To Telegram Or To My Google Drive. \nU can Use Me To Leech Your Movies, Web Series, Anime Or Anything U Want.\nThanks To @Kai_8_4 For Editing Me and Making Me a Anime Leech Bot.'
     await event.reply(event.chat_id, mshg, file=pict, buttons=keybord)
 
