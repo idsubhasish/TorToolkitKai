@@ -644,12 +644,13 @@ async def set_password_zip(message):
             )
 
 
-async def start_handler(event, update):
-    pict="https://telegra.ph/file/9a450dd2c7f28bd1bd518.jpg"
-    keyboardv = [[Button.url(text="🌸 Kai84 🌸", url="tg://user?id=1477711713")],[Button.url(text="Share My Movie Group💫", url="https://t.me/share/url?url=%40Movie_Bank")]]
-    usinfo = f'[{update.message.from_user.first_name}](tg://user?id={update.message.from_user.id})'
+async def start_handler(event):
+    chat=event.chat_id
+    pic="https://telegra.ph/file/9a450dd2c7f28bd1bd518.jpg"
+    chatinfo = await event.client(GetFullUserRequest(event.sender_id))
+    usinfo = f'[{chatinfo.user.first_name}](tg://user?id={update.message.from_user.id})'
     mshg = f'Hello {usinfo}, I am [Tanjirou Kamado](https://anilist.co/character/126071/Tanjirou-Kamado). \nI Can Leech And Upload Either To Telegram Or To My Google Drive. \nU can Use Me To Leech Your Movies, Web Series, Anime Or Anything U Want.\nThanks To @Kai_8_4 For Editing Me and Making Me a Anime Leech Bot.'
-    await event.send_message(event.chat_id, mshg, file=pict, buttons=keyboardv)
+    await event.send_message(chat, mshg, file=pic, parse_mode='md', buttons=[[Button.url("⊗Kai84⊗", "https://t.me/Kai_8_4")],[Button.url("Group", "https://t.me/Mythleecherz")]])
 
 def progress_bar(percentage):
     """Returns a progress bar for download"""
