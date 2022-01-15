@@ -16,7 +16,7 @@ from telethon import TelegramClient
 from telethon import __version__ as telever
 from telethon import events
 from telethon.tl.types import KeyboardButtonCallback
-from telethon import Button
+from telethon import Button, GetFullUserRequest
 
 from tortoolkit import __version__
 
